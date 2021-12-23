@@ -3,6 +3,9 @@
 Repository for collecting scripts to help capture MyConvento newsroom
 press-releases from the MyConvento PR management suite.
 
+More on MyConvento: https://www.myconvento.com/en/welcome/
+In German: https://www.myconvento.com/
+
 ## Introduction
 
 MyConvento is a "newsroom" platform. It provides a means for organizations to
