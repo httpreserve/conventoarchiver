@@ -136,6 +136,24 @@ def capture_pdf_links(urls):
     """Capture links for press-release PDF files from My Convneto
     press-release HTML pages.
 
+    The list output from here looks as follows:
+
+        [
+            (title (string), url (string), pdf_link (string)),
+            (title (string), url (string), pdf_link (string)),
+            (title (string), url (string), pdf_link (string)),
+            (title (string), url (string), pdf_link (string)),
+        ]
+
+    Access to the values in the second position of the list might look
+    as follows, given list link_tuples:
+
+        title = link_tuples[1][0]
+        url = link_tuples[1][1]
+        pdf = link_tuples[1][2]
+
+    Through iteration, the caller can access all items.
+
     :param urls: list of press-release URLs (list)
     :return: list of PDF links (list)
     """
@@ -197,6 +215,19 @@ def output_simple_json(link_tuples):
         sitemap.write(json.dumps(link_tuples, indent=2, sort_keys=True).encode("utf8"))
 
 
+def output_simple_text(link_tuples):
+    """Output a simple text listing of all press-releases and PDF links.
+
+    :param link_tuples: list of tuples containing, title, link, and PDF
+        values (list)
+    :return: None (nonetype)
+    """
+    with open("sitemap-{}.txt".format(suffix), "wb") as sitemap:
+        for link in link_tuples:
+            sitemap.write("{}\n".format(link[1]).encode("utf8"))
+            sitemap.write("{}\n".format(link[2]).encode("utf8"))
+
+
 def main():
     """Primary entry point of the script."""
 
@@ -206,6 +237,7 @@ def main():
 
     output_simple_html(pdfs_releases)
     output_simple_json(pdfs_releases)
+    output_simple_text(pdfs_releases)
 
 
 if __name__ == "__main__":
