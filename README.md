@@ -60,6 +60,19 @@ Which can be archived more conventionally.
 
 * https://web.archive.org/web/20211217131419/https://myconvento.com/public/newsroom/data/plugin/news/run/show_news/news_id/3451175
 
+### Archiving the index
+
+At the time of writing, I didn't have an approach for accessing a company's
+newsroom index. I managed to find a link that didn't rewrite the URL via
+Gooogle. The addition of `&c=1` seems to make the page static; although there
+is other noise in the URL that might also have an impact (but doesn't seem to).
+
+For the example above the static newsroom is at:
+
+* https://myconvento.com/public/index.php?controller=newsroom&action=data&plugin=news&run=list_news&lang=22&id=4337&integration=js&page=1&c=1
+
+Chnage the integer after `id=` to access the permalink of your newsroom.
+
 ## Process
 
 To archive a myconvento newsroom, therefore, you need to take the source URL
